@@ -1,0 +1,16 @@
+---
+fabric: fabric-dmz
+leaf:
+  - ip: 10.20.2.10
+  - ip: 10.20.2.11
+spine:
+  - ip: 10.20.2.12
+interface_group:
+  group_esxi_1:
+    - Ethernet1/3/1
+attach_group:
+  group1:
+    - ip_address: "{{ leaf[0].ip }}"
+      ports: "{{ interface_group.group_esxi_1 }}"
+    - ip_address: "{{ leaf[1].ip }}"
+      ports: "{{ interface_group.group_esxi_1 }}"

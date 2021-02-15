@@ -1,0 +1,18 @@
+---
+vrf:
+  - vrf_name: BLUE
+    attach:
+      - ip_address: "{{ leaf[0].ip }}"
+      - ip_address: "{{ leaf[1].ip }}"
+  - vrf_name: GREEN
+    attach:
+      - ip_address: "{{ leaf[0].ip }}"
+      - ip_address: "{{ leaf[1].ip }}"
+  - vrf_name: RED
+    attach:
+      - ip_address: "{{ leaf[0].ip }}"
+      - ip_address: "{{ leaf[1].ip }}"
+  - vrf_name: vrf-service
+    attach:
+      - ip_address: "{{ leaf[0].ip }}"
+      - ip_address: "{{ leaf[1].ip }}"

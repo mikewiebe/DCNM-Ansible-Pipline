@@ -1,0 +1,22 @@
+---
+network:
+  - net_name: network_vmotion
+    vrf_name: vrf-service
+    vlan_id: 1000
+    gw_ip_subnet: "19.19.19.254/24"
+    attach: "{{ attach_group.group1 }}"
+  - net_name: network_web
+    vrf_name: BLUE
+    vlan_id: 2300
+    gw_ip_subnet: "172.16.10.1/24"
+    attach: "{{ attach_group.group1 }}"
+  - net_name: network_app
+    vrf_name: BLUE
+    vlan_id: 2301
+    gw_ip_subnet: "172.16.11.1/24"
+    attach: "{{ attach_group.group1 }}"
+  - net_name: network_db
+    vrf_name: BLUE
+    vlan_id: 2302
+    gw_ip_subnet: "172.16.12.1/24"
+    attach: "{{ attach_group.group1 }}"

@@ -1,0 +1,28 @@
+---
+fabric: staging-fabric
+leaf:
+  - ip: 10.20.2.30
+  - ip: 10.20.2.31
+spine:
+  - ip: 10.20.2.32
+interface_group:
+  group_esxi_1:
+    - Ethernet1/1
+  group_esxi_2:
+    - Ethernet1/2
+  group_esxi_3:
+    - Ethernet1/3
+attach_group:
+  group1:
+    - ip_address: "{{ leaf[0].ip }}"
+      ports: "{{ interface_group.group_esxi_1 }}"
+    - ip_address: "{{ leaf[1].ip }}"
+      ports: "{{ interface_group.group_esxi_1 }}"
+    - ip_address: "{{ leaf[0].ip }}"
+      ports: "{{ interface_group.group_esxi_2 }}"
+    - ip_address: "{{ leaf[1].ip }}"
+      ports: "{{ interface_group.group_esxi_2 }}"
+    - ip_address: "{{ leaf[0].ip }}"
+      ports: "{{ interface_group.group_esxi_3 }}"
+    - ip_address: "{{ leaf[1].ip }}"
+      ports: "{{ interface_group.group_esxi_3 }}"

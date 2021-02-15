@@ -1,0 +1,13 @@
+---
+- name: vrf | create vrf
+  cisco.dcnm.dcnm_vrf:
+    fabric: "{{ fabric }}"
+    config:
+      - vrf_name: "{{ item.vrf_name }}"
+  loop: "{{ vrf }}"
+
+- name: vrf | attach dcnm vrf
+  cisco.dcnm.dcnm_vrf:
+    fabric: "{{ fabric }}"
+    config: "{{ vrf }}"
+    state: overridden

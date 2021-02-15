@@ -1,0 +1,20 @@
+---
+- name: network | create networks on {{ fabric }}
+  cisco.dcnm.dcnm_network:
+    fabric: "{{ fabric }}"
+    config:
+      - net_name: "{{ item.net_name }}"
+        vrf_name: "{{ item.vrf_name }}"
+        gw_ip_subnet: "{{ item.gw_ip_subnet }}"
+  loop: "{{ network }}"
+  tags:
+    - network
+
+- name: network | attach networks to {{ fabric }}
+  cisco.dcnm.dcnm_network:
+    fabric: "{{ fabric }}"
+    config:
+      - "{{ item }}"
+  loop: "{{ network }}"
+  tags:
+    - network

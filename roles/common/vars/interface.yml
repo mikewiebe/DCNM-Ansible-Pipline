@@ -1,0 +1,6 @@
+---
+interface:
+  routed: []
+  loopback: []
+  vpc: []
+  sub_int: []

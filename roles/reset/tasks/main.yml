@@ -1,0 +1,4 @@
+---
+- include_tasks: reset_network.yml
+- include_tasks: reset_interface.yml
+- include_tasks: reset_vrf.yml

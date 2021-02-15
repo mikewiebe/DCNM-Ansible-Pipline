@@ -1,0 +1,36 @@
+---
+- name: interface | Create loopback interfaces
+  cisco.dcnm.dcnm_interface:
+    fabric: "{{ fabric }}"
+    config: "{{ interface.loopback }}"
+    state: merged
+  when: interface.loopback != []
+  tags:
+    - interface
+
+- name: interface | Create vPCs on leaf1 and leaf2
+  cisco.dcnm.dcnm_interface:
+    fabric: "{{ fabric }}"
+    config: "{{ interface.vpc }}"
+    state: merged
+  when: interface.vpc != []
+  tags:
+    - interface
+
+- name: interface | Create routed interfaces
+  cisco.dcnm.dcnm_interface:
+    fabric: "{{ fabric }}"
+    config: "{{ interface.routed }}"
+    state: merged
+  when: interface.routed != []
+  tags:
+    - interface
+
+- name: interface | Create sub-interfaces
+  cisco.dcnm.dcnm_interface:
+    fabric: "{{ fabric }}"
+    config: "{{ interface.sub_int }}"
+    state: replaced
+  when: interface.sub_int != []
+  tags:
+    - interface

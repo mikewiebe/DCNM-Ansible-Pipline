@@ -1,0 +1,8 @@
+---
+- name: verify | verify if fabric is right state
+  hosts: dcnm
+  gather_facts: false
+  roles:
+    - production
+    - common
+    - verify

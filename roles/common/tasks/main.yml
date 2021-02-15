@@ -1,0 +1,9 @@
+---
+- name: include fabric vrf config from files
+  include_vars: vrf.yml
+
+- name: include fabric network from files
+  include_vars: network.yml
+
+- name: include fabric interface config from files
+  include_vars: interface.yml

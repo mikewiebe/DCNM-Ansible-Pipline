@@ -1,0 +1,7 @@
+---
+- name: import dcnm vrf provision task
+  import_tasks: vrf.yml
+- name: import dcnm interfaces provision task
+  import_tasks: interface.yml
+- name: import dcnm network provision task
+  import_tasks: network.yml

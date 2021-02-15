@@ -1,0 +1,8 @@
+---
+- name: production | provision production fabric
+  hosts: dcnm
+  gather_facts: false
+  roles:
+    - production
+    - common
+    - fabric

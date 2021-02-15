@@ -1,0 +1,8 @@
+---
+- name: provision staging fabric
+  hosts: dcnm
+  gather_facts: false
+  roles:
+    - staging
+    - common
+    - fabric
