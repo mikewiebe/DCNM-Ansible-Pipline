@@ -13,12 +13,12 @@ jobs:
           yamllint_comment: true
   deploy:
     runs-on: ubuntu
-    container: 
-      image: cytopia/ansible:2.10
-    steps:
-      - uses: actions/checkout@v2
-      - name: echo
-        env:
-          ANSIBLE_VAULT: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
-        run: |
-          echo $ANSIBLE_VAULT
+    needs: lint
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: staging.yml
+        directory: ./
+        vault_password: ${{secrets.ANSIBLE_VAULT_PASSWORD}}
+        options: |
+          -i inventory/dcnm
