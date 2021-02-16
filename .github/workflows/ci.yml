@@ -13,9 +13,11 @@ jobs:
           yamllint_comment: true
   deploy:
     runs-on: ubuntu
-    container: cytopia/ansible:2.9
+    container: 
+      image: cytopia/ansible:2.10
     steps:
-      - shell: bash
+      - uses: actions/checkout@v2
+      - name: echo
         env:
           ANSIBLE_VAULT: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
         run: |
