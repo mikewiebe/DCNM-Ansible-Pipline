@@ -2,7 +2,7 @@
 name: CI
 on: push
 jobs:
-  build:
+  lint:
     runs-on: ubuntu
     steps:
       - uses: actions/checkout@v2
@@ -11,5 +11,12 @@ jobs:
         with:
           yamllint_strict: false
           yamllint_comment: true
+  deploy:
+    runs-on: ubuntu
+    container: cytopia/ansible:2.9
+    steps:
+      - shell: bash
         env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANSIBLE_VAULT: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+        run: |
+          echo $ANSIBLE_VAULT
