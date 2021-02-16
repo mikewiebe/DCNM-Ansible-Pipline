@@ -1,9 +1,10 @@
+---
 - name: validate webhook
   hosts: localhost
   gather_facts: false
   tasks:
     - name: validate webhook
       assert:
-        that: 
+        that:
           - tower_webhook_event_type | default('') == 'push'
           - tower_webhook_payload.ref | default('') == 'refs/heads/main'

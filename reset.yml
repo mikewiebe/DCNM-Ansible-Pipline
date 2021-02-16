@@ -1,11 +1,12 @@
 ---
 - hosts: dcnm
-  gather_facts: False
+  gather_facts: false
   vars_prompt:
     name: "reset_confirmation"
-    prompt: "Are you sure you want to reset fabric state? Type 'yes' to reset your cluster."
+    prompt: "Are you sure you want to reset fabric state? \
+            Type 'yes' to reset your cluster."
     default: "no"
-    private: no
+    private: false
 
   pre_tasks:
     - name: check confirmation
