@@ -14,11 +14,12 @@ jobs:
   deploy:
     runs-on: ubuntu
     needs: lint
-    - name: Run playbook
-      uses: dawidd6/action-ansible-playbook@v2
-      with:
-        playbook: staging.yml
-        directory: ./
-        vault_password: ${{secrets.ANSIBLE_VAULT_PASSWORD}}
-        options: |
-          -i inventory/dcnm
+    steps:
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: staging.yml
+          directory: ./
+          vault_password: ${{secrets.ANSIBLE_VAULT_PASSWORD}}
+          options: |
+            -i inventory/dcnm
