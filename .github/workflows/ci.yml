@@ -15,10 +15,12 @@ jobs:
     runs-on: ubuntu
     needs: lint
     steps:
+      - uses: actions/checkout@v2
       - name: Run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: staging.yml
+          requirements: ./collections/requirements.yml
           directory: ./
           vault_password: ${{secrets.ANSIBLE_VAULT_PASSWORD}}
           options: |
