@@ -24,5 +24,5 @@ network:
   - net_name: network_green
     vrf_name: GREEN
     vlan_id: 2400
-    gw_ip_subnet: "192.168.10.1"
+    gw_ip_subnet: "192.168.10.1/24"
     attach: "{{ attach_group.group1 }}"
