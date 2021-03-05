@@ -17,6 +17,10 @@
     - production
     - staging
 
+- name: Pause for 30 seconds
+  pause:
+    seconds: 30
+
 - name: verify | check if all Networks are deployed
   block:
     - name: verify | query all Networks from {{ fabric }}
